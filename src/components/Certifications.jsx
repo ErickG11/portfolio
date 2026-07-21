@@ -37,6 +37,13 @@ const certs = [
     accent: "lime",
     icon: "⚡",
   },
+  {
+    title: "PMI Project Management Ready",
+    issuer: "PMI · UDLA Quito",
+    date: "Jul 2026",
+    accent: "cyan",
+    icon: "📋",
+  },
 ];
 
 const accentClasses = {
