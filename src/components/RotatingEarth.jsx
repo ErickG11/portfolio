@@ -3,33 +3,35 @@ import * as d3 from "d3";
 
 const ECUADOR_COORDS = [-79.2, -0.25];
 
-export default function RotatingEarth({ width = 800, height = 600, className = "" }) {
+export default function RotatingEarth({ className = "" }) {
+  const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!containerRef.current || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    const containerWidth = Math.min(width, window.innerWidth - 40);
-    const containerHeight = Math.min(height, window.innerHeight - 100);
-    const radius = Math.min(containerWidth, containerHeight) / 2.5;
+    const size = Math.round(containerRef.current.getBoundingClientRect().width);
+    if (size === 0) return;
+
+    const radius = size / 2.5;
 
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = containerWidth * dpr;
-    canvas.height = containerHeight * dpr;
-    canvas.style.width = `${containerWidth}px`;
-    canvas.style.height = `${containerHeight}px`;
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
     context.scale(dpr, dpr);
 
     const projection = d3
       .geoOrthographic()
       .scale(radius)
-      .translate([containerWidth / 2, containerHeight / 2])
+      .translate([size / 2, size / 2])
       .clipAngle(90);
 
     const path = d3.geoPath().projection(projection).context(context);
@@ -100,13 +102,13 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
     let pulseElapsed = 0;
 
     const render = () => {
-      context.clearRect(0, 0, containerWidth, containerHeight);
+      context.clearRect(0, 0, size, size);
 
       const currentScale = projection.scale();
       const scaleFactor = currentScale / radius;
 
       context.beginPath();
-      context.arc(containerWidth / 2, containerHeight / 2, currentScale, 0, 2 * Math.PI);
+      context.arc(size / 2, size / 2, currentScale, 0, 2 * Math.PI);
       context.fillStyle = "#0B0D10";
       context.fill();
       context.globalAlpha = 0.4;
@@ -139,9 +141,9 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
         if (
           projected &&
           projected[0] >= 0 &&
-          projected[0] <= containerWidth &&
+          projected[0] <= size &&
           projected[1] >= 0 &&
-          projected[1] <= containerHeight
+          projected[1] <= size
         ) {
           context.beginPath();
           context.arc(projected[0], projected[1], 1.2 * scaleFactor, 0, 2 * Math.PI);
@@ -154,9 +156,9 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       if (
         pinProjected &&
         pinProjected[0] >= 0 &&
-        pinProjected[0] <= containerWidth &&
+        pinProjected[0] <= size &&
         pinProjected[1] >= 0 &&
-        pinProjected[1] <= containerHeight
+        pinProjected[1] <= size
       ) {
         const pulseRadius = (3 + Math.sin(pulseElapsed / 300) * 1.5) * scaleFactor;
 
@@ -262,28 +264,24 @@ export default function RotatingEarth({ width = 800, height = 600, className = "
       canvas.removeEventListener("mousedown", handleMouseDown);
       canvas.removeEventListener("wheel", handleWheel);
     };
-  }, [width, height]);
+  }, []);
 
   if (error) {
     return (
-      <div className={`flex items-center justify-center bg-surface rounded-2xl p-8 ${className}`}>
+      <div ref={containerRef} className={`flex items-center justify-center bg-surface rounded-2xl p-8 aspect-square ${className}`}>
         <p className="text-muted text-sm text-center">{error}</p>
       </div>
     );
   }
 
   return (
-    <div className={`relative ${className}`}>
+    <div ref={containerRef} className={`relative aspect-square ${className}`}>
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-24 h-24 rounded-full bg-surface animate-pulse" />
         </div>
       )}
-      <canvas
-        ref={canvasRef}
-        className="w-full h-auto rounded-2xl"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
+      <canvas ref={canvasRef} className="block rounded-2xl" />
       <div className="absolute bottom-4 left-4 text-xs text-muted px-2 py-1 rounded-md glass">
         Arrastra para rotar • Scroll para zoom
       </div>

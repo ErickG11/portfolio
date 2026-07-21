@@ -10,7 +10,18 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="bg-base min-h-screen font-body text-ink">
+    <div className="relative min-h-screen font-body text-ink">
+      <div className="fixed inset-0 -z-10 overflow-hidden bg-base pointer-events-none">
+        <div className="absolute -top-40 -left-40 w-[32rem] h-[32rem] rounded-full bg-lime/20 blur-3xl animate-blob" />
+        <div
+          className="absolute top-1/3 -right-40 w-[28rem] h-[28rem] rounded-full bg-cyan/20 blur-3xl animate-blob"
+          style={{ animationDelay: "-4s" }}
+        />
+        <div
+          className="absolute bottom-0 left-1/4 w-[30rem] h-[30rem] rounded-full bg-violet/20 blur-3xl animate-blob"
+          style={{ animationDelay: "-8s" }}
+        />
+      </div>
       <Navbar />
       <main>
         <Hero />

@@ -70,7 +70,7 @@ export default function Availability() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="glass rounded-2xl p-4 max-w-md mx-auto w-full"
           >
-            <RotatingEarth width={480} height={480} className="w-full" />
+            <RotatingEarth className="w-full" />
           </motion.div>
         </div>
       </div>
