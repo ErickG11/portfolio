@@ -35,10 +35,9 @@ export default function Availability() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-6 text-muted text-base sm:text-lg max-w-md"
             >
-              Estoy basado en Ecuador (UTC-5), lo que me da buen solape
-              horario con Latinoamérica y gran parte de Estados Unidos, y
-              me permite coordinar sin problema de forma asíncrona con
-              equipos en Europa.
+              Ubicado en Ecuador (UTC-5), con un horario accesible con
+              Latinoamérica y gran parte de Estados Unidos y coordinación
+              de forma asíncrona con equipos en Europa.
             </motion.p>
 
             <motion.div

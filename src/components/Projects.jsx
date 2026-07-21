@@ -23,6 +23,16 @@ const projects = [
     linkLabel: "En desarrollo",
     accent: "cyan",
   },
+  {
+    name: "Cafe y Coplas",
+    role: "E-commerce de panadería y cafetería",
+    description:
+      "Tienda en línea para una panadería/cafetería, con catálogo de productos y carrito de compras. Construida con React y animaciones GSAP.",
+    tags: ["React", "Vite", "GSAP", "Vitest"],
+    link: null,
+    linkLabel: "En desarrollo",
+    accent: "lime",
+  },
 ];
 
 export default function Projects() {

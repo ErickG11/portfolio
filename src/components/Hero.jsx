@@ -4,7 +4,7 @@ import Terminal from "./Terminal";
 import Ticker from "./Ticker";
 
 const stats = [
-  { value: "2+",  label: "Años programando" },
+  { value: "1",   label: "Año programando" },
   { value: "2",   label: "Proyectos en producción" },
   { value: "10+", label: "Tecnologías" },
   { value: "UIO", label: "Quito, Ecuador" },
@@ -31,9 +31,9 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display font-semibold text-5xl sm:text-6xl leading-[1.05] tracking-tight"
             >
-              Construyo software
+              Diseño y desarrollo
               <br />
-              que la gente <span className="text-gradient">realmente usa.</span>
+              de software <span className="text-gradient">a medida.</span>
             </motion.h1>
 
             <motion.p
