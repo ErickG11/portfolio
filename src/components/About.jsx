@@ -63,10 +63,6 @@ export default function About() {
               funcionales — desde sitios institucionales hasta apps móviles completas
               con backend propio.
             </p>
-            <p className="text-muted text-sm mt-4">
-              Cuando no estoy programando, probablemente esté en el gym
-              entrenando calistenia o revisando gráficos de inversión.
-            </p>
           </BentoCard>
 
           {/* Ubicación */}
