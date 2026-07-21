@@ -20,7 +20,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-mono text-xs text-lime tracking-widest uppercase mb-5"
+              className="font-mono text-xs text-lime-ink tracking-widest uppercase mb-5"
             >
               $ whoami
             </motion.p>

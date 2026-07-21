@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "Sobre mí",        href: "#about"           },
@@ -33,7 +34,7 @@ export default function Navbar() {
         }`}
       >
         <a href="#hero" className="font-display font-semibold text-lg tracking-tight">
-          erick<span className="text-lime">.</span>dev
+          erick<span className="text-lime-ink">.</span>dev
         </a>
 
         <ul className="hidden md:flex items-center gap-8 font-body text-sm text-muted">
@@ -46,12 +47,15 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contacto"
-          className="rounded-full bg-lime text-base font-semibold text-sm px-5 py-2 hover:scale-105 transition-transform"
-        >
-          Hablemos
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contacto"
+            className="rounded-full bg-lime text-base font-semibold text-sm px-5 py-2 hover:scale-105 transition-transform"
+          >
+            Hablemos
+          </a>
+        </div>
       </nav>
     </motion.header>
   );

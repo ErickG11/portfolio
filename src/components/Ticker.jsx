@@ -12,11 +12,11 @@ export default function Ticker() {
     <div className="relative overflow-hidden mt-10 py-4 border-y border-border">
       <div
         className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #0B0D10, transparent)" }}
+        style={{ background: "linear-gradient(to right, var(--color-page), transparent)" }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #0B0D10, transparent)" }}
+        style={{ background: "linear-gradient(to left, var(--color-page), transparent)" }}
       />
 
       <div className="flex animate-marquee w-max gap-0">

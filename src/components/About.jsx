@@ -34,7 +34,7 @@ function LanguageBar({ lang, level, flag }) {
         <span>{flag} {lang}</span>
         <span className="text-muted font-mono text-xs">{level}</span>
       </div>
-      <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+      <div className="h-1.5 rounded-full bg-ink/10 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: level === "Nativo" ? "100%" : "65%" }}
@@ -72,7 +72,7 @@ export default function About() {
           {/* Ubicación */}
           <BentoCard dot="bg-cyan" label="Ubicación" delay={0.05}>
             <div className="flex items-center gap-2 text-ink/90">
-              <MapPin className="w-4 h-4 text-cyan" />
+              <MapPin className="w-4 h-4 text-cyan-ink" />
               <span>Quito, Ecuador</span>
             </div>
             <p className="text-muted text-sm mt-3">
@@ -103,7 +103,7 @@ export default function About() {
 
               <div>
                 <p className="font-semibold text-ink">Anfibius</p>
-                <p className="text-violet text-sm font-medium">Pasante — Desarrollo Móvil</p>
+                <p className="text-violet-ink text-sm font-medium">Pasante — Desarrollo Móvil</p>
                 <p className="text-muted text-xs mt-1">Santo Domingo, Ecuador</p>
                 <p className="text-ink/80 text-sm mt-3 leading-relaxed">
                   Desarrollo de aplicación móvil multiplataforma con .NET MAUI,
@@ -111,7 +111,7 @@ export default function About() {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {[".NET MAUI", "C#", ".NET"].map((t) => (
-                    <span key={t} className="font-mono text-xs px-3 py-1 rounded-full border border-violet/30 text-violet">
+                    <span key={t} className="font-mono text-xs px-3 py-1 rounded-full border border-violet/30 text-violet-ink">
                       {t}
                     </span>
                   ))}
@@ -131,7 +131,7 @@ export default function About() {
           {/* Actualmente */}
           <BentoCard dot="bg-violet" label="Actualmente" delay={0.2}>
             <p className="text-ink/90">
-              Construyendo <span className="text-violet font-medium">NEON</span>,
+              Construyendo <span className="text-violet-ink font-medium">NEON</span>,
               una app de productividad y finanzas en Flutter + Supabase.
             </p>
           </BentoCard>
@@ -139,10 +139,10 @@ export default function About() {
           {/* Disponibilidad */}
           <BentoCard dot="bg-coral" label="Disponibilidad" delay={0.25}>
             <p className="text-ink/90">
-              Abierto a <span className="text-coral font-medium">empleo full-time</span>{" "}
-              y proyectos <span className="text-coral font-medium">freelance</span>.
+              Abierto a <span className="text-coral-ink font-medium">empleo full-time</span>{" "}
+              y proyectos <span className="text-coral-ink font-medium">freelance</span>.
             </p>
-            <span className="mt-4 inline-flex w-fit items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full border border-coral/40 text-coral">
+            <span className="mt-4 inline-flex w-fit items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-full border border-coral/40 text-coral-ink">
               ● Disponible ahora
             </span>
           </BentoCard>
@@ -150,10 +150,10 @@ export default function About() {
           {/* Contacto */}
           <BentoCard dot="bg-lime" label="Contacto" delay={0.3}>
             <div className="flex flex-col gap-3 text-sm">
-              <a href="mailto:grandaerick.m@gmail.com" className="flex items-center gap-2 hover:text-lime transition-colors">
+              <a href="mailto:grandaerick.m@gmail.com" className="flex items-center gap-2 hover:text-lime-ink transition-colors">
                 <Mail className="w-4 h-4" /> grandaerick.m@gmail.com
               </a>
-              <a href="https://github.com/ErickG11" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-lime transition-colors">
+              <a href="https://github.com/ErickG11" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-lime-ink transition-colors">
                 <GithubIcon className="w-4 h-4" /> github.com/ErickG11
               </a>
             </div>
@@ -180,7 +180,7 @@ export default function About() {
 export function SectionHeading({ eyebrow, title }) {
   return (
     <div>
-      <p className="font-mono text-xs text-lime tracking-widest uppercase">{eyebrow}</p>
+      <p className="font-mono text-xs text-lime-ink tracking-widest uppercase">{eyebrow}</p>
       <h2 className="font-display font-semibold text-3xl sm:text-4xl mt-3 tracking-tight">
         {title}
       </h2>

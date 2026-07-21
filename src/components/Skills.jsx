@@ -125,7 +125,7 @@ export default function Skills() {
               onClick={() => handleTab(i)}
               className={`font-mono text-xs px-4 py-2 rounded-full border transition-all duration-200 ${
                 active === i
-                  ? "border-lime text-lime bg-lime/10"
+                  ? "border-lime text-lime-ink bg-lime/10"
                   : "border-border text-muted hover:border-lime/40 hover:text-ink"
               }`}
             >

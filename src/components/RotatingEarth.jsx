@@ -1,13 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
+import { useTheme } from "../hooks/useTheme";
 
 const ECUADOR_COORDS = [-79.2, -0.25];
+
+function readThemeColors() {
+  const styles = getComputedStyle(document.documentElement);
+  return {
+    page: styles.getPropertyValue("--color-page").trim(),
+    ink: styles.getPropertyValue("--color-ink").trim(),
+    muted: styles.getPropertyValue("--color-muted").trim(),
+  };
+}
 
 export default function RotatingEarth({ className = "" }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [theme] = useTheme();
+  const colorsRef = useRef(readThemeColors());
+
+  useEffect(() => {
+    colorsRef.current = readThemeColors();
+  }, [theme]);
 
   useEffect(() => {
     if (!containerRef.current || !canvasRef.current) return;
@@ -107,12 +123,14 @@ export default function RotatingEarth({ className = "" }) {
       const currentScale = projection.scale();
       const scaleFactor = currentScale / radius;
 
+      const colors = colorsRef.current;
+
       context.beginPath();
       context.arc(size / 2, size / 2, currentScale, 0, 2 * Math.PI);
-      context.fillStyle = "#0B0D10";
+      context.fillStyle = colors.page;
       context.fill();
       context.globalAlpha = 0.4;
-      context.strokeStyle = "#F3F4F0";
+      context.strokeStyle = colors.ink;
       context.lineWidth = 2 * scaleFactor;
       context.stroke();
       context.globalAlpha = 1;
@@ -123,7 +141,7 @@ export default function RotatingEarth({ className = "" }) {
       context.beginPath();
       path(graticule());
       context.globalAlpha = 0.15;
-      context.strokeStyle = "#F3F4F0";
+      context.strokeStyle = colors.ink;
       context.lineWidth = 1 * scaleFactor;
       context.stroke();
       context.globalAlpha = 1;
@@ -131,7 +149,7 @@ export default function RotatingEarth({ className = "" }) {
       context.beginPath();
       landFeatures.features.forEach((feature) => path(feature));
       context.globalAlpha = 0.5;
-      context.strokeStyle = "#F3F4F0";
+      context.strokeStyle = colors.ink;
       context.lineWidth = 1 * scaleFactor;
       context.stroke();
       context.globalAlpha = 1;
@@ -147,7 +165,7 @@ export default function RotatingEarth({ className = "" }) {
         ) {
           context.beginPath();
           context.arc(projected[0], projected[1], 1.2 * scaleFactor, 0, 2 * Math.PI);
-          context.fillStyle = "#8B9097";
+          context.fillStyle = colors.muted;
           context.fill();
         }
       });

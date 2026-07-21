@@ -15,7 +15,7 @@ export default function Contact() {
         >
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-lime/20 rounded-full blur-3xl animate-blob" />
 
-          <p className="font-mono text-xs text-lime tracking-widest uppercase relative">
+          <p className="font-mono text-xs text-lime-ink tracking-widest uppercase relative">
             // contacto
           </p>
           <h2 className="font-display font-semibold text-3xl sm:text-4xl mt-4 tracking-tight relative">

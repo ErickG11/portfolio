@@ -40,10 +40,10 @@ const certs = [
 ];
 
 const accentClasses = {
-  lime:   { border: "hover:border-lime/60",   badge: "border-lime/30 text-lime",   shadow: "hover:shadow-lime/10"   },
-  cyan:   { border: "hover:border-cyan/60",   badge: "border-cyan/30 text-cyan",   shadow: "hover:shadow-cyan/10"   },
-  violet: { border: "hover:border-violet/60", badge: "border-violet/30 text-violet", shadow: "hover:shadow-violet/10" },
-  coral:  { border: "hover:border-coral/60",  badge: "border-coral/30 text-coral",  shadow: "hover:shadow-coral/10"  },
+  lime:   { border: "hover:border-lime/60",   badge: "border-lime/30 text-lime-ink",   shadow: "hover:shadow-lime/10"   },
+  cyan:   { border: "hover:border-cyan/60",   badge: "border-cyan/30 text-cyan-ink",   shadow: "hover:shadow-cyan/10"   },
+  violet: { border: "hover:border-violet/60", badge: "border-violet/30 text-violet-ink", shadow: "hover:shadow-violet/10" },
+  coral:  { border: "hover:border-coral/60",  badge: "border-coral/30 text-coral-ink",  shadow: "hover:shadow-coral/10"  },
 };
 
 export default function Certifications() {

@@ -13,7 +13,7 @@ export default function Availability() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-mono text-xs text-lime tracking-widest uppercase mb-5"
+              className="font-mono text-xs text-lime-ink tracking-widest uppercase mb-5"
             >
               // disponible para trabajar remoto
             </motion.p>
